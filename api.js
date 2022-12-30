@@ -3,15 +3,18 @@ let login = document.querySelector(".login");
 let slider = document.querySelector(".slider");
 let formSection = document.querySelector(".form-section");
   
-signup.addEventListener("click", () => {
-    slider.classList.add("moveslider");
-    formSection.classList.add("form-section-move");
-});
+//signup.addEventListener("click", () => {
+//    slider.classList.add("moveslider");
+  //  formSection.classList.add("form-section-move");
+//
   
-login.addEventListener("click", () => {
-    slider.classList.remove("moveslider");
-    formSection.classList.remove("form-section-move");
-});
+//login.addEventListener("click", () => {
+  //  slider.classList.remove("moveslider");
+    //formSection.classList.remove("form-section-move");
+//});
+
+let p = document.getElementById("clkbtn");
+p.onclick = on_button_click;
 
 //var myHeaders = new Headers();
 //myHeaders.append("Authorization", "Bearer 738CD655-02D3-44FD-9DEE-B2B0AF5E363B");
