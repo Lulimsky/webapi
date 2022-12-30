@@ -1,74 +1,57 @@
-let signup = document.querySelector(".signup");
-let login = document.querySelector(".login");
-let slider = document.querySelector(".slider");
-let formSection = document.querySelector(".form-section");
-  
-//signup.addEventListener("click", () => {
-//    slider.classList.add("moveslider");
-  //  formSection.classList.add("form-section-move");
-//
-  
-//login.addEventListener("click", () => {
-  //  slider.classList.remove("moveslider");
-    //formSection.classList.remove("form-section-move");
-//});
-
 let p = document.getElementById("clkbtn");
 p.onclick = on_button_click;
 
-//var myHeaders = new Headers();
-//myHeaders.append("Authorization", "Bearer 738CD655-02D3-44FD-9DEE-B2B0AF5E363B");
-//
-//var formdata = new FormData();
-//
-//var requestOptions = {
-//  method: 'POST',
-  //headers: myHeaders,
-  //body: formdata,
- // redirect: 'follow'
-//};
+var agent_token = "738CD655-02D3-44FD-9DEE-B2B0AF5E363B";
 
-//fetch("https://webapi-sta.012global.com/api/DevTest/SendVerificationEmail", requestOptions)
-  //.then(response => response.text())
-  //.then(result => console.log(result))
- // .catch(error => console.log('error', error)); 
-//
-
-const BASE_URL = 'https://webapi-sta.012global.com/api/DevTest';
-const AGENT_TOKEN = "738CD655-02D3-44FD-9DEE-B2B0AF5E363B";
-
-// Declaración de la funcón
-// Parametros por posición.
-const post = async (endpoint, body) => {
-  const requestOptions = {
-    method: 'POST',
-    body: JSON.stringify(body),
-  };
-
-  return fetch(`${BASE_URL}${endpoint}`, requestOptions);
-};
-
-const test = async (email, password) => {
-    const signUpResponse =  await post('/UserLogin', {
-  "AgentToken": AGENT_TOKEN,
-  "Email": emailele,
-  "Password": passwordele,
-})
-    
-    console.log('[API-STATUS]', signUpResponse.status)
-    
-    const signUpJson = await signUpResponse.json()
-    
-    console.log('[SIGN UP]', signUpJson)
-  
-  const response =  await post('/SendVerificationEmail', {
-  "AgentToken": AGENT_TOKEN,
-  "Email": emailele
-})
-
-  const json = await response.json()
-  
-  console.log(json)
+function validate_email(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
 }
 
-test("lucila.mociulsky@holbertonstudents.com")
+function on_button_click() {
+  var email = document.getElementById("email").value;
+
+  // Check if email is valid
+  if (!validate_email(email)) {
+    alert("Invalid email");
+    return;
+  }
+  
+  // Validate passwords are equal
+  var password = document.getElementById("password").value;
+  var re_password = document.getElementById("re_password").value;
+
+  if (password !== re_password) {
+    alert("Password mismatch");
+    return;
+  }
+
+  // Create json from input data
+  var obj = new Object();
+  obj.AgentToken = agent_token;
+  obj.Email = email;
+  obj.Password = password;
+  var json_str = JSON.stringify(obj);
+
+  // Send request to server
+  fetch('https://webapi-sta.012global.com/api/DevTest/AddUser', {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: json_str,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Check error
+      if (data.ErrorCode != "0") {
+        alert(data.Error);
+      }
+    })
+    .catch((error) => {
+      alert('Error:', error);
+    });
+  
+  // On ok redirect to login page
+  window.location.replace("login.html");
+}
