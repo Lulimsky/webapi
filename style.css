@@ -270,4 +270,15 @@ header {
 		width: 130px;
 		font-size: 19px;
 	}
+
+	.form .login-signup{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		margin-top: 30px;
+		text-align: center;
+	}
 }
