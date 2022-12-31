@@ -9,7 +9,8 @@ function validate_email(email) {
 }
 
 function on_button_click() {
-  var email = document.getElementById("email").value;
+  console.log('here');
+ // var email = document.getElementById("email").value;
 
   // Check if email is valid
   if (!validate_email(email)) {
@@ -55,3 +56,5 @@ function on_button_click() {
   // On ok redirect to login page
   window.location.replace("login.html");
 }
+
+p.addEventListener('click', on_button_click);  
