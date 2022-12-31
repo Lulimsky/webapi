@@ -57,4 +57,33 @@ function on_button_click() {
   window.location.replace("login.html");
 }
 
-p.addEventListener('click', on_button_click);  
+p.addEventListener('click', on_button_click);
+
+ // Send request to server.
+ // login process
+
+ const data ={AgentToken: 'Agent Token',
+              Email: 'Email Address' ,
+              Password : 'Password' ,
+            }
+ 
+
+  clickLogin = (e) => {
+  e.preventDefault();
+
+  fetch ('https://webapi-sta.012global.com/api/DevTest/UserLogin', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+     },
+      body: JSON.stringify(data),
+    })
+         
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success', data);
+    }) 
+    .catch((error) => {
+      console.error ('Error:', error);
+    });
+  }
