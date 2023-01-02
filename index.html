@@ -7,7 +7,8 @@
 		content="width=device-width,
 						initial-scale=1.0">
 	<title>WebAPI by Lucila Mociulsky</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet"
+		href="style.css">
 </head>
 
 <body>
@@ -25,8 +26,10 @@
 				<div class="login-box">
 					<input type="email"
 						class="email_ele"
+						id="email"
 						placeholder="youremail@email.com">
 					<input type="password"
+						id="password" 
 						class="password_ele"
 						placeholder="password">
 				
@@ -34,7 +37,7 @@
 				Not a user? <a href="singin.html">Signup now</a>
 				<meta http-equiv="refresh" content="delay_time; URL=new_website_url" />
 				</div>	
-					<button class="clkbtn">Login</button>
+					<button id="login_clk_btn" class="clkbtn">Login</button>
 				</div>
 			</form>		              
 
@@ -49,11 +52,12 @@
 				<input type="password"
 					class="password_ele"
 					placeholder="password">
-				<button id="clkbtn" class="clkbtn">Signup</button>
+				<button id="login_clk_btn" class="clkbtn">Signup</button>
 			</div>
 		</div>
 	</div>
-	<script src="api.js"></script>
+	<script src="login.js"></script>
+	<script src="signup.js"></script>
 </body>
 
 </html>
