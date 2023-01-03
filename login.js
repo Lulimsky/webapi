@@ -32,7 +32,7 @@ function login_on_button_click() {
     },
     body: json_str,
   })
-    .then((response) => response.json())
+    .then((response) => response.json()) 
     .then((data) => {
       if (data.ErrorCode == "0") {
         // Save user token in local storage
