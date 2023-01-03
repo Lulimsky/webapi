@@ -6,7 +6,9 @@ var agent_token = "738CD655-02D3-44FD-9DEE-B2B0AF5E363B";
 function login_on_button_click() {
   var email = document.getElementById("email").value;
   
-  // Check if email is valid
+  // Global expresion to Check if email is valid
+  //looks for an "at sing"
+  //and looks for matching adress
   if (!validate_email(email)) {
     alert("Invalid email");
     return;
@@ -22,7 +24,7 @@ function login_on_button_click() {
   obj.Password = password;
   var json_str = JSON.stringify(obj);
 
-  // Send request to server.
+  // Send request to server, once the JSON is created
   fetch('https://webapi-sta.012global.com/api/DevTest/UserLogin', {
     method: 'POST',
     headers: {
@@ -45,3 +47,4 @@ function login_on_button_click() {
       alert(error);
     });
 }
+ 

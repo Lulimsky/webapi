@@ -1,3 +1,6 @@
+// using the `.getElementById` method to obtain de Id 
+//from the present program and inizialize it!
+//`onclick` to start the event of the "Sing Up" button
 let p = document.getElementById("sign_up_clk_btn");
 p.onclick = sign_up_on_button_click;
 

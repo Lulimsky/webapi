@@ -1,3 +1,6 @@
+//after the page is load
+// event "on_load" applay
+
 function on_load() {
     // Get prices from server
     var obj = new Object();
@@ -21,9 +24,11 @@ function on_load() {
         
         if (data.ErrorCode == "0") {
           // Update table with json result
+          //Taking the lenght of the array
           let prices_length = Object.keys(data.Prices).length;
           var as = data.Prices.map((m) => { return Object.values(m); });
   
+        // returns a tables 
           // Create a HTML Table element.
           var table = document.createElement("TABLE");
           table.border = "1";
@@ -34,6 +39,7 @@ function on_load() {
           // Add the header row.
           var row = table.insertRow(-1);
   
+          //Creates tables and saves it in the local storerage 
           var header_cell = document.createElement("TH");
           header_cell.innerHTML = "Ticker";
           row.appendChild(header_cell);
@@ -66,4 +72,3 @@ function on_load() {
         alert('Error:', error);
       });
   }
-  
