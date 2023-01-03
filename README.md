@@ -9,6 +9,11 @@
 ![login_web_exe_p2](https://user-images.githubusercontent.com/85719559/210293380-cec180a1-d188-42fb-822a-efdd943b9327.jpg)
 ![login_web_exe_p3](https://user-images.githubusercontent.com/85719559/210299706-15adb2d9-a0f9-450a-a92c-5d5f2bc94028.jpg)
 
+ **Go to: https://lulimsky.github.io/webapi/ to view the project**
+ 
+**ROUTE**: https://github.com/Lulimsky/webapi/deployments/activity_log?environment=github-pages
+ 
+ 
 **Technical decisions:**
 
 My approach as a Junior Full-Stack Developer, beginning in Front-End development
